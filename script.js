@@ -7,19 +7,25 @@ newButton.onclick = function (event) {
     console.log("ответ");
     event.preventDefault();
     console.log(input.value);
-    input.value=eval(input.value.toString());
+    input.value = eval(input.value.toString());
 }
 for (p = 0; p < 16; p = p + 1) {
     console.log("p " + p);
     buttons[p].onclick = function (event) {
         event.preventDefault();
         console.log(this);
-        input.value = input.value + this.innerHTML;
+        if (input.value.length < 15) {
+            input.value = input.value + this.innerHTML;
+        }
+        if (this.innerHTML=="DEL") {
+            input.value=""
+            
+        }
     }
 }
 input.oninput = function (event) {
     console.log("onchange");
-    if(symbols.includes(1)){
+    if (symbols.includes(1)) {
 
     }
 }
